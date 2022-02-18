@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-         <h1>Blog Name</h1>
+        <h1>Blog Name</h1>
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
@@ -15,6 +15,9 @@
                     <p class='body'>{{ $post->body }}</p>
                 </div>
             @endforeach
+        </div>
+        <div class='paginate'>
+            {{ $posts->links() }}
         </div>
     </body>
 </html>
