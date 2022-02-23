@@ -17,7 +17,16 @@ class PostController extends Controller
     {
         return view('show')->with(['post' => $post]);
     }
-<<<<<<< HEAD
+    public function create()
+    {
+        return view('create');
+    }
+    public function store(PostRequest $request, Post $post)
+    {
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
+    }
     public function edit(Post $post)
     {
         return view('edit')->with(['post' => $post]);
@@ -29,18 +38,5 @@ class PostController extends Controller
     
         return redirect('/posts/' . $post->id);
     }
-=======
-    public function create()
-    {
-        return view('create');
-    }
-    public function store(PostRequest $request, Post $post)
-    {
-        $input = $request['post'];
-        $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
-    }
-  
->>>>>>> d61dc61c095558e386348e8e2c456622eefd651d
 }
 ?>
