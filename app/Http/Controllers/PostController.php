@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Cotegory;
-
 
 class PostController extends Controller
 {
@@ -29,4 +28,6 @@ class PostController extends Controller
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
+  
 }
+?>
