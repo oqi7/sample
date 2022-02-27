@@ -10,15 +10,30 @@
     </head>
     <body>
         <h1>Blog Name</h1>
+        <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="return checkDelete(this)">delete</button>
+        </form>
         <div class='post'>
             <h2 class='title'>{{ $post->title }}</h2>
                 <p class='body'>{{ $post->body }}</p>  
                 <p class='updated_at'>{{ $post->updated_at }}</p>
-                <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
+                <p class='edit'>[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
             </div>
         
         <div class="back">
             <a href="/">戻る</a>
         </div>
+        <script>
+            function checkDelete(){
+                const result = window.confirm("本当に削除しますか？");
+                if (result){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>
